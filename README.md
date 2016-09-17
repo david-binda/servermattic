@@ -35,3 +35,4 @@ If you actually use this code to do something cool, could you let us know about 
 Credit: 
 
 Most of the code contributed by Demitrious Kelly (http://apokalyptik.com).  Remaining tidbits by Barry Abrahamson (http://barry.wordpress.com).
+
