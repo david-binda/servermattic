@@ -1,8 +1,9 @@
 #!/bin/bash
 apt-get update
 apt-get install -fqqy subversion
-svn co https://core.svn.wordpress.org/tags/4.6.1/ /var/www/
-rm -Rf /var/www/.svn
+rm -rf /var/www/*
+svn export https://core.svn.wordpress.org/tags/4.6.1/ /var/www/
+chown nobody /var/www/wp-content/uploads
 service nginx restart
 
 ln -sf /etc/mysql-initscripts/mysql-5.6 /etc/init.d/mysql1-0
@@ -18,6 +19,7 @@ chown -R mysql.mysql /var/lib/mysql1-0
 /usr/local/mysql/bin/mysqladmin --defaults-file=/etc/mysql/mysql1-0.cnf -u root password 'god'
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "create user 'wp'@'localhost' IDENTIFIED BY 'drupal';"
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "GRANT ALL ON wp.* TO 'wp'@'localhost';"
+mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -SN  -pgod -e "DROP DATABASE wordpress;"
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "CREATE DATABASE wordpress;"
 
 service nginx restart
