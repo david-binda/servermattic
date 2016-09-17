@@ -1,7 +1,7 @@
 #!/bin/bash
 apt-get update
 apt-get install -fqqy subversion
-rm -rf /var/www/*
+rm -Rf /var/www
 svn export https://core.svn.wordpress.org/tags/4.6.1/ /var/www/
 chown nobody /var/www/wp-content/uploads
 service nginx restart
