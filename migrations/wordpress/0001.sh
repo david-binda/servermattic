@@ -26,3 +26,7 @@ mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -SN  -pgod -e "DROP DATABA
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "CREATE DATABASE wordpress;"
 
 service nginx restart
+
+wget -P /usr/local/bin/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+mv /usr/local/bin/wp-cli.phar /usr/local/bin/wp
+chmod +x /usr/local/bin/wp
