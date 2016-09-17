@@ -19,3 +19,5 @@ chown -R mysql.mysql /var/lib/mysql1-0
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "create user 'wp'@'localhost' IDENTIFIED BY 'drupal';"
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "GRANT ALL ON wp.* TO 'wp'@'localhost';"
 mysql --defaults-file=/etc/mysql/mysql1-0.cnf -u root -sN  -pgod -e "CREATE DATABASE wordpress;"
+
+service nginx restart
